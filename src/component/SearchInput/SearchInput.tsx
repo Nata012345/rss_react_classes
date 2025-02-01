@@ -1,23 +1,24 @@
-import React, {Component} from "react";
-import {PLACEHOLDERS} from "../config.ts";
+import React, { Component } from 'react';
+import { PLACEHOLDERS } from '../../config.ts';
+import styles from './SearchInput.module.css';
 
 interface SearchInputProps {
-    value: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 class SearchInput extends Component<SearchInputProps> {
-    render () {
-        return (
-            <input
-                type="text"
-                value={this.props.value}
-                onChange={this.props.onChange}
-                placeholder={PLACEHOLDERS.search}
-                style={{padding: '5px', border: '1px solid #ccc', borderRadius: '4px'}}
-            />
-        )
-    }
+  render() {
+    return (
+      <input
+        type="text"
+        value={this.props.value}
+        onChange={this.props.onChange}
+        placeholder={PLACEHOLDERS.search}
+        className={styles.input}
+      />
+    );
+  }
 }
 
-export default SearchInput
+export default SearchInput;
