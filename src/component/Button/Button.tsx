@@ -12,7 +12,7 @@ class Button extends Component<ButtonProps> {
       <button
         onClick={this.props.onClick}
         style={this.props.style}
-        className={styles}
+        className={styles.button}
       >
         {this.props.label}
       </button>
