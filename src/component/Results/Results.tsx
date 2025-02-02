@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import Posts from '../component/Posts/Posts.tsx';
-import Button from '../component/Button/Button.tsx';
-import Loader from '../component/Loader/Loader.tsx';
-import { LABELBUTTONS, MESSAGES } from '../config.ts';
-import Error from '../component/Error/Error.tsx';
+import Posts from '../Posts/Posts.tsx';
+import Button from '../Button/Button.tsx';
+import Loader from '../Loader/Loader.tsx';
+import { LABELBUTTONS, MESSAGES } from '../../config.ts';
+import Error from '../Error/Error.tsx';
 import styles from './Results.module.css';
 
 interface Result {
@@ -17,6 +17,7 @@ interface ResultsProps {
   error: string | null;
   results: Result[];
   throwError: () => void;
+  className: string;
 }
 
 class Results extends Component<ResultsProps> {
@@ -30,13 +31,19 @@ class Results extends Component<ResultsProps> {
         ) : error ? (
           <Error />
         ) : results.length === 0 ? (
-          <p>{MESSAGES.emptyAnswer}</p>
+          <h2>{MESSAGES.emptyAnswer}</h2>
         ) : (
           <Posts posts={results} />
         )}
-        <div className={styles.containerButton}>
-          <Button onClick={throwError} label={LABELBUTTONS.error} />
-        </div>
+        {!loading && (
+          <div className={styles.containerButton}>
+            <Button
+              className="buttonThrowError"
+              onClick={throwError}
+              label={LABELBUTTONS.error}
+            />
+          </div>
+        )}
       </div>
     );
   }

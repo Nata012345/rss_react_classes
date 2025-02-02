@@ -1,10 +1,11 @@
 import React, { Component, ErrorInfo } from 'react';
 import Button from './Button/Button.tsx';
-import { LABELBUTTONS } from '../config.ts';
+import { LABELBUTTONS, MESSAGES } from '../config.ts';
 import Error from './Error/Error.tsx';
 
 interface ErrorBoundaryState {
   hasError: boolean;
+  className: string;
 }
 
 class ErrorBoundary extends Component<
@@ -32,8 +33,12 @@ class ErrorBoundary extends Component<
     if (this.state.hasError) {
       return (
         <>
-          <h2>Something went wrong. Please reload the page.</h2>
-          <Button onClick={this.handlerError} label={LABELBUTTONS.reload} />
+          <h2 style={{ color: 'red' }}>{MESSAGES.error}</h2>
+          <Button
+            className="buttonPrimery"
+            onClick={this.handlerError}
+            label={LABELBUTTONS.reload}
+          />
         </>
       );
     }

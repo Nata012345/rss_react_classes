@@ -14,7 +14,7 @@ class Button extends Component<ButtonProps> {
       <button
         onClick={onClick}
         style={style}
-        className={`${styles.button} ${className || ''}`.trim()}
+        className={`${styles.button} ${className ? styles[className] : ''}`.trim()}
       >
         {label}
       </button>

@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import { MESSAGES } from '../../config.ts';
+import styles from './Loader.module.css';
 
 class Loader extends Component {
   render() {
-    return <div className="loader">{MESSAGES.loading}</div>;
+    return <h3 className={styles.loader}>{MESSAGES.loading}</h3>;
   }
 }
 

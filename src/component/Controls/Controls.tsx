@@ -8,6 +8,7 @@ interface ControlsProps {
   searchTerm: string;
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onSearch: () => void;
+  className: string;
 }
 class Controls extends Component<ControlsProps> {
   render() {
@@ -17,7 +18,11 @@ class Controls extends Component<ControlsProps> {
         <h2>Top controls</h2>
         <div className={styles.controlsInput}>
           <SearchInput value={searchTerm} onChange={onSearchChange} />
-          <Button onClick={onSearch} label={LABELBUTTONS.search} />
+          <Button
+            className="buttonPrimery"
+            onClick={onSearch}
+            label={LABELBUTTONS.search}
+          />
         </div>
       </div>
     );
