@@ -1,0 +1,13 @@
+.containerControls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.controlsInput {
+    display: flex;
+    gap: 30px;
+}
+
+/*.containerResults {*/
+
+/*}*/

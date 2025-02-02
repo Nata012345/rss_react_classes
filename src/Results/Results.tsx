@@ -1,9 +1,10 @@
 import { Component } from 'react';
-import Posts from './Posts/Posts.tsx';
-import Button from './Button/Button.tsx';
-import Loader from './Loader/Loader.tsx';
+import Posts from '../component/Posts/Posts.tsx';
+import Button from '../component/Button/Button.tsx';
+import Loader from '../component/Loader/Loader.tsx';
 import { LABELBUTTONS, MESSAGES } from '../config.ts';
-import Error from './Error/Error.tsx';
+import Error from '../component/Error/Error.tsx';
+import styles from './Results.module.css';
 
 interface Result {
   id: number;
@@ -22,7 +23,7 @@ class Results extends Component<ResultsProps> {
   render() {
     const { loading, error, results, throwError } = this.props;
     return (
-      <div>
+      <div className={styles.containerResults}>
         <h2>Results</h2>
         {loading ? (
           <Loader />
@@ -33,7 +34,9 @@ class Results extends Component<ResultsProps> {
         ) : (
           <Posts posts={results} />
         )}
-        <Button onClick={throwError} label={LABELBUTTONS.error} />
+        <div className={styles.containerButton}>
+          <Button onClick={throwError} label={LABELBUTTONS.error} />
+        </div>
       </div>
     );
   }

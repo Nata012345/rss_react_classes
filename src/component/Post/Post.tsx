@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import styles from './Post.module.css';
 
 interface PostProps {
   id: number;
@@ -9,12 +10,15 @@ class Post extends Component<PostProps> {
   render() {
     const { id, title, body } = this.props;
     return (
-      <li>
-        <strong>
-          {id}. {title}
-        </strong>
-        : {body}
-      </li>
+      <tbody className={styles.resultBody}>
+        <tr>
+          <td>{id}</td>
+          <td>
+            <strong>{title}</strong>
+          </td>
+          <td>{body}</td>
+        </tr>
+      </tbody>
     );
   }
 }

@@ -1,0 +1,7 @@
+.resultBody tr {
+    transition: background-color 0.1s ease-in-out 0.1s;
+}
+
+.resultBody tr:hover {
+    background-color: black;
+}

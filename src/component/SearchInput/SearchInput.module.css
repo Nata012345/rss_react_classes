@@ -1,5 +1,20 @@
-.input {
-  padding: '5px';
-  border: '1px solid #ccc';
-  borderradius: '4px';
+input {
+  width: 280px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
 }
+
+input:hover {
+  border-color: #aaa;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+

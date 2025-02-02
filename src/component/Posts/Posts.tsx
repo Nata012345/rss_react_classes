@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Post from '../Post/Post.tsx';
+import styles from './Posts.module.css';
 
 interface PostsProps {
   posts: { id: number; title: string; body: string }[];
@@ -7,7 +8,14 @@ interface PostsProps {
 class Posts extends Component<PostsProps> {
   render() {
     return (
-      <ul>
+      <table className={styles.postTable}>
+        <thead className={styles.postTableHead}>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Discription</th>
+          </tr>
+        </thead>
         {this.props.posts.map((post) => (
           <Post
             key={post.id}
@@ -16,7 +24,7 @@ class Posts extends Component<PostsProps> {
             body={post.body}
           />
         ))}
-      </ul>
+      </table>
     );
   }
 }

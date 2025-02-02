@@ -5,16 +5,18 @@ interface ButtonProps {
   style?: React.CSSProperties;
   onClick: () => void;
   label: string;
+  className?: string;
 }
 class Button extends Component<ButtonProps> {
   render() {
+    const { onClick, style, label, className } = this.props;
     return (
       <button
-        onClick={this.props.onClick}
-        style={this.props.style}
-        className={styles.button}
+        onClick={onClick}
+        style={style}
+        className={`${styles.button} ${className || ''}`.trim()}
       >
-        {this.props.label}
+        {label}
       </button>
     );
   }

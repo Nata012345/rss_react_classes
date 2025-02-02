@@ -1,0 +1,9 @@
+.containerResults {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.containerButton {
+    display: flex;
+    justify-content: right;
+}

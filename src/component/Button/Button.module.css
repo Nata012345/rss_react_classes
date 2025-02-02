@@ -5,15 +5,22 @@
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: rgba(84, 165, 239, 0.89);
+  /*background-color: rgba(84, 165, 239, 0.89);*/
   cursor: pointer;
   transition: border-color 0.25s;
 }
-.button:hover {
+.buttonPrimery {
+  background-color: rgba(84, 165, 239, 0.89);
+}
+/*.button:hover {*/
+/*  border-color: #080e78;*/
+/*  background-color: rgba(26, 134, 233, 0.89);*/
+/*}*/
+.buttonPrimery:hover {
   border-color: #080e78;
   background-color: rgba(26, 134, 233, 0.89);
 }
-.button:focus,
-.button:focus-visible {
+.buttonPrimery:focus,
+.buttonPrimery:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }

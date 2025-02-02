@@ -5,7 +5,11 @@ const fetchResults = async (searchTerm) => {
     const response = await axios.get(
       'https://jsonplaceholder.typicode.com/posts',
       {
-        params: { _limit: 10, _page: 1 },
+        params: {
+          _limit: 10,
+          _page: 1,
+          q: searchTerm || undefined,
+        },
       }
     );
     return response.data.map((post) => ({
@@ -14,7 +18,7 @@ const fetchResults = async (searchTerm) => {
       body: post.body,
     }));
   } catch (error) {
-    throw new Error('Failed to fetch data');
+    throw new Error('Failed to fetch data', error);
   }
 };
 
