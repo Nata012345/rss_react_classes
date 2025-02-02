@@ -1,0 +1,11 @@
+.containerResults {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 500px;
+    flex: 1;
+}
+.containerButton {
+    display: flex;
+    justify-content: center;
+}

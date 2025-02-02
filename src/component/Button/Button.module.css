@@ -1,0 +1,19 @@
+.button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.buttonPrimery {
+  background-color: rgba(84, 165, 239, 0.89);
+}
+.buttonThrowError {
+  background-color: red;
+}

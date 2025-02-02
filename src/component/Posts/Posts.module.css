@@ -1,0 +1,15 @@
+.postTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+.postTable th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+.postTable thead {
+    background-color: rgba(128, 128, 128, 0.35);
+    color: white;
+}

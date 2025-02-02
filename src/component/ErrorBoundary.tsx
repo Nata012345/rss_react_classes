@@ -1,27 +1,49 @@
-import React, {Component, ErrorInfo} from "react";
+import React, { Component, ErrorInfo } from 'react';
+import Button from './Button/Button.tsx';
+import { LABELBUTTONS, MESSAGES } from '../config.ts';
+import Error from './Error/Error.tsx';
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  className: string;
+}
 
 class ErrorBoundary extends Component<
-    { children: React.ReactNode },
-    { hasError: boolean }
+  { children: React.ReactNode },
+  ErrorBoundaryState
 > {
-    constructor(props: { children: React.ReactNode }) {
-        super(props);
-        this.state = { hasError: false };
-    }
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-    static getDerivedStateFromError() {
-        return { hasError: true };
-    }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
 
-    componentDidCatch(error: Error, info: ErrorInfo) {
-        console.error('Error caught by boundary:', error, info);
-    }
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Error caught by boundary:', error, errorInfo);
+  }
 
-    render() {
-        if (this.state.hasError) {
-            return <h2>Something went wrong. Please reload the page.</h2>;
-        }
-        return this.props.children;
+  handlerError = () => {
+    this.setState({ hasError: false });
+  };
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <>
+          <h2 style={{ color: 'red' }}>{MESSAGES.error}</h2>
+          <Button
+            className="buttonPrimery"
+            onClick={this.handlerError}
+            label={LABELBUTTONS.reload}
+          />
+        </>
+      );
     }
+    return this.props.children;
+  }
 }
+
 export default ErrorBoundary;
